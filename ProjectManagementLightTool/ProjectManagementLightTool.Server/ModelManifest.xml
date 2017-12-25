@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.Server\Properties\Service.lsml" Checksum="7BD5A2412A30B03FBCF32B85E524E140B5393AF6D93DFD437E99D5454945E88B" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.Server\Properties\DataSources\ApplicationData.lsml" Checksum="986A4E2C3BC71E61B26C49DBB7451F9203AA85AB5825740AC6E35E7095E0722C" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.Server\DataSources\ProjectManagementData\Companies.lsml" Checksum="F18EA5AC516F6AABFFDFA37F3A89185B3801E05EB414E10799495147D20B328B" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.Server\DataSources\ProjectManagementData\OtherActivities.lsml" Checksum="E12C3E5FA6D959005CFC73FB7A56A5B3A3D538C1FACE39F8EE9A4124108600D7" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.Server\DataSources\ProjectManagementData\Projects.lsml" Checksum="BF2BBF40BAF5F5AD299BB12CF1AB12004E6F0ED1717589F5118AB6E4D8536F47" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.Server\DataSources\ProjectManagementData\Tasks.lsml" Checksum="C82909A966FB47A9FEF0E0D2D7156936C058A9C8073C82D21B4A321AAFDF17FA" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.Server\DataSources\ProjectManagementData\TaskDetails.lsml" Checksum="B1CF49C903BA9AA21105A5D153B353962F40CA2DE3E98562804FADEB133496B1" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.Server\Properties\DataSources\ProjectManagementData.lsml" Checksum="246E5EB03D49AAF6F4A0CB4B3E052B0D361E8D5D9A40512458CD82F4C999D08D" />
+  </Documents>
+</ModelDocumentManifest>

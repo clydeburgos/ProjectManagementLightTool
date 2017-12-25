@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Properties\Client.lsml" Checksum="1B90032B6503B9637341C2EF7B6CA891EEC212AA6F493AAE21E5EC276EC610B7" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Properties\Proxies.lsml" Checksum="A8199A23C5CC7A4B6558EC0AA9B83DA94EBBAE64655E1A51BB6951A15752DDE8" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Screens\CreateNewCompany.lsml" Checksum="F33147CD0D176E879E32C115DE39C98A6C902CD2CFEF78DE08C7CFB6F30EF231" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Screens\CreateNewOtherActivity.lsml" Checksum="9A8FD49738BB76CA8DCFCBF231A999ADC97F57429DFB6B77C85F77588658385E" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Screens\CreateNewProject.lsml" Checksum="9C9C6BD2D8047C657F4BDCA44A3C76BC27574CD2CC310171946FF2C7C23E4463" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Screens\CreateNewTask.lsml" Checksum="B2381237182B1BF55ECC109CEBAC9229BF7798351A783EBBE7FDE24C75DE2CF5" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Screens\CompaniesListDetail.lsml" Checksum="F62F056C8DACE5618F5A8D5A14D033E7958167866249149A5EBFED40C6C4E75A" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Screens\OtherActivitiesListDetail.lsml" Checksum="FB7BA57936F4B54859AB09CE5A968BC3AE263F94D3AC49333B68E2B862C8E1CE" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Screens\ProjectsListDetail.lsml" Checksum="3E83D8AEA921EDB385A73F10A6AB9D11F9F837514F55E437406B89189B60D24A" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Screens\SearchTasks.lsml" Checksum="74E51FECBF650813803FCF9F6CBF9BE06D05D12BDC0A5B4D9003C614F924B50A" />
+    <Document FullPath="C:\Files\Projects\PERSONAL PROJECTS\ProjectManagementLightTool\ProjectManagementLightTool\ProjectManagementLightTool.DesktopClient\Screens\TasksListDetail.lsml" Checksum="2A1848C018CD6CADDB3EE6771C961275977BE899FDFF7D4768A0B34787AA6E9A" />
+  </Documents>
+</ModelDocumentManifest>

@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="Task">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="TaskId"
+        IsReadOnly="True"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="CodeId"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ShortDesc"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="LongDesc"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="500" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="DateTimeStarted"
+        PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint
+            Precision="3"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="DateTimeFinished"
+        PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint
+            Precision="3"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Status"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Severity"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="Project"
+        Association="FK_Task_Project"
+        FromEnd="Task"
+        ToEnd="Project" />
+      <NavigationProperty
+        Name="TaskDetails"
+        Association="FK_TaskDetail_Task"
+        FromEnd="Task"
+        ToEnd="TaskDetail" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ProjectManagementData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="Tasks"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="Task" />
+    <QueryOperation
+      Name="Tasks_Single"
+      ReturnType="Task">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="TaskId" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="TaskId" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Tasks" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="TaskId"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'TaskId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="Tasks_SingleOrDefault"
+      ReturnType="Task">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="TaskId" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="TaskId" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Tasks" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="TaskId"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'TaskId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="FK_TaskDetail_Task"
+      Association="FK_TaskDetail_Task">
+      <AssociationSetEnd
+        Name="Task"
+        EntitySet="Tasks" />
+      <AssociationSetEnd
+        Name="TaskDetail"
+        EntitySet="TaskDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association
+    Name="FK_TaskDetail_Task">
+    <AssociationEnd
+      Name="Task"
+      Multiplicity="One"
+      EntityType="Task">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="TaskDetail"
+      Multiplicity="Many"
+      EntityType="TaskDetail" />
+  </Association>
+  <DataService
+    Name="ProjectManagementDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="Tasks">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="Task" />
+        <SsdlProperty
+          Name="TaskId"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="int"
+          Property="Task/Properties[TaskId]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="CodeId"
+          Nullable="True"
+          Type="nvarchar"
+          Property="Task/Properties[CodeId]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="ShortDesc"
+          Nullable="True"
+          Type="nvarchar"
+          Property="Task/Properties[ShortDesc]" />
+        <SsdlProperty
+          MaxLength="500"
+          Name="LongDesc"
+          Nullable="True"
+          Type="nvarchar"
+          Property="Task/Properties[LongDesc]" />
+        <SsdlProperty
+          Name="DateTimeStarted"
+          Nullable="True"
+          Type="datetime"
+          Property="Task/Properties[DateTimeStarted]" />
+        <SsdlProperty
+          Name="DateTimeFinished"
+          Nullable="True"
+          Type="datetime"
+          Property="Task/Properties[DateTimeFinished]" />
+        <SsdlProperty
+          Name="Status"
+          Nullable="True"
+          Type="int"
+          Property="Task/Properties[Status]" />
+        <SsdlProperty
+          Name="Severity"
+          Nullable="True"
+          Type="int"
+          Property="Task/Properties[Severity]" />
+        <SsdlForeignKeyProperty
+          Name="ProjectId"
+          Nullable="False"
+          Type="int"
+          PropertyName="ProjectId" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_TaskDetail_Task">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_TaskDetail_Task" />
+        <SsdlAssociationSetEnd
+          End="ProjectManagementData/Members[FK_TaskDetail_Task]/Members[Task]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="TaskId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ProjectManagementData/Members[FK_TaskDetail_Task]/Members[TaskDetail]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="TaskId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>

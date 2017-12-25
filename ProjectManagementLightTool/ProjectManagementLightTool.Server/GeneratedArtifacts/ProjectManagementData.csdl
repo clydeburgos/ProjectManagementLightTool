@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="Edm.String" MaxLength="150" ConcurrencyMode="Fixed" />
+    <Property Name="Address" Type="Edm.String" MaxLength="150" ConcurrencyMode="Fixed" />
+    <Property Name="City" Type="Edm.String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="State" Type="Edm.String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="Zip" Type="Edm.String" MaxLength="10" ConcurrencyMode="Fixed" />
+    <Property Name="Country" Type="Edm.String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="Status" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+    <Property Name="WorkStarted" Type="Edm.DateTime" Precision="0" ConcurrencyMode="Fixed" />
+    <Property Name="WorkEnded" Type="Edm.DateTime" Precision="0" ConcurrencyMode="Fixed" />
+    <Property Name="ContactPerson" Type="Edm.String" MaxLength="150" ConcurrencyMode="Fixed" />
+    <Property Name="ContactNumber" Type="Edm.String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="Notes" Type="Edm.String" MaxLength="550" ConcurrencyMode="Fixed" />
+    <Property Name="IsDeleted" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Projects" Relationship="LightSwitchApplication.FK_Project_Company" ToRole="Project" FromRole="Company" />
+  </EntityType>
+  <EntityType Name="OtherActivity">
+    <Key>
+      <PropertyRef Name="OtherItem" />
+    </Key>
+    <Property Name="OtherItem" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Type" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+    <Property Name="Description" Type="Edm.String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="DateTimeStarted" Type="Edm.DateTime" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="DateTimeFinished" Type="Edm.DateTime" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="ProjectId" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectName" Type="Edm.String" MaxLength="150" ConcurrencyMode="Fixed" />
+    <Property Name="ShortDesc" Type="Edm.String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="LongDesc" Type="Edm.String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="PointPerson" Type="Edm.String" MaxLength="150" ConcurrencyMode="Fixed" />
+    <Property Name="DateStarted" Type="Edm.DateTime" Precision="0" ConcurrencyMode="Fixed" />
+    <Property Name="DateFinished" Type="Edm.DateTime" Precision="0" ConcurrencyMode="Fixed" />
+    <Property Name="Status" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+    <Property Name="AdditionalNotes" Type="Edm.String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="CompanyId" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Company" Relationship="LightSwitchApplication.FK_Project_Company" ToRole="Company" FromRole="Project" />
+    <NavigationProperty Name="Tasks" Relationship="LightSwitchApplication.FK_Task_Project" ToRole="Task" FromRole="Project" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeId" Type="Edm.String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="ShortDesc" Type="Edm.String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="LongDesc" Type="Edm.String" MaxLength="500" ConcurrencyMode="Fixed" />
+    <Property Name="DateTimeStarted" Type="Edm.DateTime" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="DateTimeFinished" Type="Edm.DateTime" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="Status" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+    <Property Name="Severity" Type="Edm.Int32" ConcurrencyMode="Fixed" />
+    <Property Name="ProjectId" Type="Edm.Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Project" Relationship="LightSwitchApplication.FK_Task_Project" ToRole="Project" FromRole="Task" />
+    <NavigationProperty Name="TaskDetails" Relationship="LightSwitchApplication.FK_TaskDetail_Task" ToRole="TaskDetail" FromRole="Task" />
+  </EntityType>
+  <EntityType Name="TaskDetail">
+    <Key>
+      <PropertyRef Name="TaskDetailId" />
+    </Key>
+    <Property Name="TaskDetailId" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateTimeWorked" Type="Edm.DateTime" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="Comments" Type="Edm.String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="TimeSpent" Type="Edm.Decimal" Precision="18" Scale="2" ConcurrencyMode="Fixed" />
+    <Property Name="TaskId" Type="Edm.Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Task" Relationship="LightSwitchApplication.FK_TaskDetail_Task" ToRole="Task" FromRole="TaskDetail" />
+  </EntityType>
+  <Association Name="FK_Project_Company">
+    <End Role="Company" Type="LightSwitchApplication.Company" Multiplicity="0..1" />
+    <End Role="Project" Type="LightSwitchApplication.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_Project">
+    <End Role="Project" Type="LightSwitchApplication.Project" Multiplicity="1" />
+    <End Role="Task" Type="LightSwitchApplication.Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskDetail_Task">
+    <End Role="Task" Type="LightSwitchApplication.Task" Multiplicity="1" />
+    <End Role="TaskDetail" Type="LightSwitchApplication.TaskDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="TaskDetail">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjectManagementData" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Companies" EntityType="LightSwitchApplication.Company" />
+    <EntitySet Name="OtherActivities" EntityType="LightSwitchApplication.OtherActivity" />
+    <EntitySet Name="Projects" EntityType="LightSwitchApplication.Project" />
+    <EntitySet Name="Tasks" EntityType="LightSwitchApplication.Task" />
+    <EntitySet Name="TaskDetails" EntityType="LightSwitchApplication.TaskDetail" />
+    <AssociationSet Name="FK_Project_Company" Association="LightSwitchApplication.FK_Project_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_Project" Association="LightSwitchApplication.FK_Task_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskDetail_Task" Association="LightSwitchApplication.FK_TaskDetail_Task">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="TaskDetail" EntitySet="TaskDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

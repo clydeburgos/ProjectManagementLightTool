@@ -1,0 +1,8 @@
+ProjectManagementLightTool.Server.Properties.Service.lsml
+ProjectManagementLightTool.Server.Properties.DataSources.ApplicationData.lsml
+ProjectManagementLightTool.Server.DataSources.ProjectManagementData.Companies.lsml
+ProjectManagementLightTool.Server.DataSources.ProjectManagementData.OtherActivities.lsml
+ProjectManagementLightTool.Server.DataSources.ProjectManagementData.Projects.lsml
+ProjectManagementLightTool.Server.DataSources.ProjectManagementData.Tasks.lsml
+ProjectManagementLightTool.Server.DataSources.ProjectManagementData.TaskDetails.lsml
+ProjectManagementLightTool.Server.Properties.DataSources.ProjectManagementData.lsml
